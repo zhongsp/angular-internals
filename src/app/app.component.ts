@@ -14,6 +14,6 @@ export class AppComponent {
   }, {
     path: '/frameworks/angular',
     label: 'Angular',
-    disabled: true
+    labelOnly: true
   }];
 }

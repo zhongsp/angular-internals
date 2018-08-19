@@ -1,7 +1,7 @@
 export interface Breadcrumb {
   path: string;
   label: string;
-  disabled?: boolean;
+  labelOnly?: boolean;
 }
 
 export type Breadcrumbs = Breadcrumb[];

@@ -1,7 +1,7 @@
 <nav aria-label="Breadcrumb" class="sample-breadcrumbs">
   <ol>
     <li *ngFor="let item of items; let isLast = last"
-        [ngSwitch]="item.disabled">
+        [ngSwitch]="item.labelOnly">
       <a *ngSwitchDefault
          routerLink="{{item.path}}"
          [attr.aria-current]="isLast ? 'page' : null">
