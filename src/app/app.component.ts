@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Breadcrumbs } from './core/breadcrumbs/config';
+import { Breadcrumbs } from './core/breadcrumbs/breadcrumbs.config';
 import { BreadcrumbsService } from "./core/breadcrumbs.service";
 
 @Component({

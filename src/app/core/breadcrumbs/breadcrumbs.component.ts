@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Breadcrumbs } from './config';
+import { Breadcrumbs } from './breadcrumbs.config';
 
 @Component({
   selector: 'sample-breadcrumbs',

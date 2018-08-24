@@ -4,7 +4,7 @@ import { mergeScan } from "rxjs/operators";
 import { map } from "rxjs/operators";
 import { from, of as rxOf } from "rxjs";
 
-import { Breadcrumbs } from "./breadcrumbs/config";
+import { Breadcrumbs } from "./breadcrumbs/breadcrumbs.config";
 
 @Injectable({
   providedIn: 'root'
