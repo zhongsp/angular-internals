@@ -16,6 +16,10 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.items = this.breadcrumbs.items;
+    this.breadcrumbs.items.subscribe(items => {
+      setTimeout(() => {
+        this.items = items
+      });
+    });
   }
 }
