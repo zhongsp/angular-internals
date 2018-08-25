@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     this.breadcrumbs.items.subscribe(items => {
       setTimeout(() => {
         this.items = items
-      });
+      }, 0);
     });
   }
 }
