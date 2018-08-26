@@ -19,12 +19,15 @@ export class FrameworkComponent implements OnInit {
 
   ngOnInit() {
     this.breadcrumbs.setItems([
-      this.breadcrumbs.getFrameworksItem(),
-      this.breadcrumbs.getFrameworkItem(
-        '/frameworks/angular',
-        'Angular',
-        true
-      )
+      {
+        path: '/frameworks',
+        label: 'Frameworks'
+      },
+      {
+        path: '/framework/angular',
+        label: 'Angular',
+        labelOnly: true
+      }
     ]);
   }
 
