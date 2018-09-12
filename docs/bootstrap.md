@@ -105,15 +105,10 @@ function.
 const bootstrap: Promise<NgModuleRef<AppModule>> = platformRef.bootstrapModule(AppModule);
 ```
 
-If using runtime compile instead of offline compile,
-it will create a runtime *compiler* first in the above code.
+When using Just-in-Time compiling instead of Ahead-of-Time compiling, Angular
+will create a runtime *JIT Compiler* first.
 
-```ts
-const compilerFactory: CompilerFactory = injector.get(CompilerFactory);
-const compiler = compilerFactory.createCompiler([options]);
-```
-
-And then, use the `compiler` to compile `AppModule` Angular module:
+Then use the created compiler to compile the `AppModule` Angular module:
 
 ```ts
 class JitCompiler {
@@ -127,16 +122,31 @@ class JitCompiler {
 }
 ```
 
-Load all modules and nested modules' metadata and also the declared directives
-and pipes.
-
-## Compile components
-
-Then, start to compile all components related to `AppModule`:
+### Load modules
 
 ```ts
-this._compileComponents(AppModule, null);
+class JitCompiler {
+  // https://github.com/angular/angular/blob/master/packages/compiler/src/jit/compiler.ts#L125
+  private _loadModules(mainModule: any, isSync: boolean): SyncAsync<any> {
+    const loading: Promise<any>[] = [];
+    const mainNgModule = this._metadataResolver.getNgModuleMetadata(mainModule) !;
+    // Note: for runtime compilation, we want to transitively compile all modules,
+    // so we also need to load the declared directives / pipes for all nested modules.
+    this._filterJitIdentifiers(mainNgModule.transitiveModule.modules).forEach((nestedNgModule) => {
+      // getNgModuleMetadata only returns null if the value passed in is not an NgModule
+      const moduleMeta = this._metadataResolver.getNgModuleMetadata(nestedNgModule) !;
+      this._filterJitIdentifiers(moduleMeta.declaredDirectives).forEach((ref) => {
+        const promise =
+            this._metadataResolver.loadDirectiveMetadata(moduleMeta.type.reference, ref, isSync);
+        if (promise) {
+          loading.push(promise);
+        }
+      });
+      this._filterJitIdentifiers(moduleMeta.declaredPipes)
+          .forEach((ref) => this._metadataResolver.getOrLoadPipeMetadata(ref));
+    });
+    return SyncAsync.all(loading);
+  }
+}
 ```
-
-## Compile Module
 
