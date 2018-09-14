@@ -122,7 +122,14 @@ class JitCompiler {
 }
 ```
 
-### Load modules
+### Load modules compile metadata
+
+In this phase, Angular will load all modules' metadata for compiling.
+`getNgModuleMetadata(mainModule)` returns an instance of `CompileNgModuleMetadata`.
+This information is used to compile an Angular module.
+
+If it's a runtime compilation, it will load all nested modules, directives and
+pipes compile metadata as the same time.
 
 ```ts
 class JitCompiler {
@@ -150,3 +157,8 @@ class JitCompiler {
 }
 ```
 
+![Combile Matadata for AppModule](./img/bootstrap_01_compile-meta.PNG "Combile Matadata for AppModule")
+
+![Combile Matadata for AppModule](./img/bootstrap_02_compile-meta_imported-modules.PNG "Combile Matadata for AppModule")
+
+![Combile Matadata for AppModule](./img/bootstrap_03_compile-meta_transitive_module.PNG "Combile Matadata for AppModule")
