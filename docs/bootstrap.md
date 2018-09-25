@@ -1,6 +1,6 @@
-# Bootstrap
+# 引导启动
 
-Full sample code:
+基础示例代码：
 
 ```ts
 import { PlatformRef, NgModuleRef } from '@angular/core';
@@ -16,16 +16,15 @@ bootstrap
   .catch(err => console.log(err));
 ```
 
-## Create an Angular platform
+## 创建 Angular platform
 
-The Angular platform is the entry point for Angular on a web page. Each page
-has exactly one platform, and services (such as reflection) which are common
-to every Angular application running on the page are bound in its scope.
+一个Angular platform是页面上Angular应用的入口点。
+每个网页仅有一个platform与若干服务（如反射），它们对于页面上所有的Angular应用来说是公用的。
 
 ### Platform factory
 
-`platform` is created by `platform factory`.
-When loading Angular libraries, the following platform factories will be created:
+`platform`是由`platform factory`所创建。
+在加载Angular代码库的过程中，有如下的`platform factory`会被创建：
 
 ```txt
 Platform: core
@@ -36,13 +35,13 @@ Platform: core
 |--Platform: browser
 ```
 
-It has an inheritance structure.
+注意，它是一种有继承的树形结构。
 
-`Platform: core` is the top level platform.
-And it's the parent of all the other platforms.
-It has to be included in any other platforms.
+其中，`Platform: core`为根。
+它是所有其它`platform`的父亲。
+它必然被包含进其它的`platform`中。
 
-While creating these factories, some built-in providers are collected. e.g.:
+在创建这些平台工厂的过程中，一些内置的`providers`会被收集起来：
 
 ```ts
 // Platform: core
@@ -81,34 +80,31 @@ const platformBrowserDynamic = createPlatformFactory(
     platformCoreDynamic, 'browserDynamic', INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS);
 ```
 
-### Create platform by platform factory
+### 使用 platform factory 创建 platform
 
-A page's platform is initialized implicitly when a platform is created via a
-platform factory, or explicitly by calling the `createPlatform` function.
+在使用`platform factory`创建`platform`时，`platform`会被自动初始化。
+或者你还可以显式地调用`createPlatform`函数。
 
 ```ts
 const platformRef: PlatformRef = platformBrowserDynamic();
 ```
 
-The code above will create a platform by `Platform: browserDynamic` factory.
+上面的代码使用`Platform: browserDynamic`工厂创建一个`platform`。
+它会向上遍历直到`Platform: core`，其间收集所有的`providers`。
+最终，调用`function createPlatform(injector: Injector): PlatformRef`函数创建一个`platform`。
 
-It'll traverse the platform tree up from `Platform: browserDynamic` to
-`Platform: core`, and finally create one platform with
-`function createPlatform(injector: Injector): PlatformRef` function.
+这时，会创建一个注入器`injector`，并传给`createPlatform()`函数。
 
-A new `injector` is created at this time, and passed into `createPlatform()`
-function.
-
-## Use platform to bootstrap an Angular module
+## 使用 platform 去引导 Angular 模块
 
 ```ts
 const bootstrap: Promise<NgModuleRef<AppModule>> = platformRef.bootstrapModule(AppModule);
 ```
 
-When using Just-in-Time compiling instead of Ahead-of-Time compiling, Angular
-will create a runtime *JIT Compiler* first.
+这里我们使用的是*Just-in-Time*方式编译，而不是预编译*Ahead-of-Time*。
+因此Angular会首先创建一个*JIT Compiler*。
 
-Then use the created compiler to compile the `AppModule` Angular module:
+然后，用创建的编译器去编译`AppModule`模块：
 
 ```ts
 class JitCompiler {
@@ -122,14 +118,13 @@ class JitCompiler {
 }
 ```
 
-### Load modules compile metadata
+### 加载模块的 compile metadata
 
-In this phase, Angular will load all modules' metadata for compiling.
-`getNgModuleMetadata(mainModule)` returns an instance of `CompileNgModuleMetadata`.
-This information is used to compile an Angular module.
+在这个阶段，Angular开始加载编译时所需的所有模块的元数据。
+`getNgModuleMetadata(mainModule)`将返回`CompileNgModuleMetadata`的实例。
+这个对象将用来编译Angular模块。
 
-If it's a runtime compilation, it will load all nested modules, directives and
-pipes compile metadata as the same time.
+如果是*Just-in-Time*模式，Angular还会加载所有嵌套的模块，指令以及管道的编译元数据。
 
 ```ts
 class JitCompiler {
@@ -157,8 +152,20 @@ class JitCompiler {
 }
 ```
 
-![Combile Matadata for AppModule](./img/bootstrap_01_compile-meta.PNG "Combile Matadata for AppModule")
+![Compile Matadata for AppModule](./img/bootstrap_01_compile-meta.PNG "Compile Matadata for AppModule")
 
-![Combile Matadata for AppModule](./img/bootstrap_02_compile-meta_imported-modules.PNG "Combile Matadata for AppModule")
+![Compile Matadata for AppModule](./img/bootstrap_02_compile-meta_imported-modules.PNG "Compile Matadata for AppModule")
 
-![Combile Matadata for AppModule](./img/bootstrap_03_compile-meta_transitive_module.PNG "Combile Matadata for AppModule")
+![Compile Matadata for AppModule](./img/bootstrap_03_compile-meta_transitive_module.PNG "Compile Matadata for AppModule")
+
+### 编译组件
+
+这一步，挑选出所有的普通组件（如`AppComponent`），以及`entryComponents`里声明的组件。
+解析它们的模版和样式。
+
+### 编译模块
+
+编译`AppModule`，并得到一个`ngModuleFactory`。
+
+### 引导模块
+
