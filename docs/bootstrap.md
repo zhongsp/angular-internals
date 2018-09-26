@@ -111,7 +111,9 @@ const bootstrap: Promise<NgModuleRef<AppModule>> = platformRef.bootstrapModule(A
 
 然后，开始用创建的编译器去编译`AppModule`模块：
 
-### 加载模块，指令（包括组件）以及管道的编译元数据（compile metadata）
+### 获取模块，指令（包括组件）以及管道的编译元数据（compile metadata）
+
+> [JitCompiler~_loadModules](https://github.com/angular/angular/blob/master/packages/compiler/src/jit/compiler.ts#L125)
 
 在这个阶段，Angular开始加载编译时所需的所有模块的元数据。
 调用`getNgModuleMetadata()`，并传入`AppModule`做为参数，返回一个`CompileNgModuleMetadata`的实例。
@@ -119,44 +121,22 @@ const bootstrap: Promise<NgModuleRef<AppModule>> = platformRef.bootstrapModule(A
 
 如果是*Just-in-Time*模式，Angular还会继续加载所有嵌套的模块，指令以及管道的编译元数据。
 
-```ts
-class JitCompiler {
-  // https://github.com/angular/angular/blob/master/packages/compiler/src/jit/compiler.ts#L125
-  private _loadModules(mainModule: any, isSync: boolean): SyncAsync<any> {
-    const loading: Promise<any>[] = [];
-    const mainNgModule = this._metadataResolver.getNgModuleMetadata(mainModule) !;
-    // Note: for runtime compilation, we want to transitively compile all modules,
-    // so we also need to load the declared directives / pipes for all nested modules.
-    this._filterJitIdentifiers(mainNgModule.transitiveModule.modules).forEach((nestedNgModule) => {
-      // getNgModuleMetadata only returns null if the value passed in is not an NgModule
-      const moduleMeta = this._metadataResolver.getNgModuleMetadata(nestedNgModule) !;
-      this._filterJitIdentifiers(moduleMeta.declaredDirectives).forEach((ref) => {
-        const promise =
-            this._metadataResolver.loadDirectiveMetadata(moduleMeta.type.reference, ref, isSync);
-        if (promise) {
-          loading.push(promise);
-        }
-      });
-      this._filterJitIdentifiers(moduleMeta.declaredPipes)
-          .forEach((ref) => this._metadataResolver.getOrLoadPipeMetadata(ref));
-    });
-    return SyncAsync.all(loading);
-  }
-}
-```
+[Image: Compile Matadata for AppModule](./img/bootstrap_01_compile-meta.PNG "Compile Matadata for AppModule")
 
-![Compile Matadata for AppModule](./img/bootstrap_01_compile-meta.PNG "Compile Matadata for AppModule")
+[Image: Compile Matadata for AppModule](./img/bootstrap_02_compile-meta_imported-modules.PNG "Compile Matadata for AppModule")
 
-![Compile Matadata for AppModule](./img/bootstrap_02_compile-meta_imported-modules.PNG "Compile Matadata for AppModule")
+[Image: Compile Matadata for AppModule](./img/bootstrap_03_compile-meta_transitive_module.PNG "Compile Matadata for AppModule")
 
-![Compile Matadata for AppModule](./img/bootstrap_03_compile-meta_transitive_module.PNG "Compile Matadata for AppModule")
+### 编译指令和组件
 
-### 编译组件
+> [JitCompiler~_compileComponents](https://github.com/angular/angular/blob/master/packages/compiler/src/jit/compiler.ts#L164)
 
 这一步，挑选出所有的普通组件（如`AppComponent`），以及`entryComponents`里声明的组件。
 解析它们的模版和样式。
 
 ### 编译模块
+
+> [JitCompiler~_compileModule](https://github.com/angular/angular/blob/master/packages/compiler/src/jit/compiler.ts#L146)
 
 编译`AppModule`，并得到一个`ngModuleFactory`。
 
