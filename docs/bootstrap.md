@@ -1,6 +1,7 @@
 # 引导启动
 
-基础示例代码：
+Angular使用`NgModule`将应用的各个组成部分集成到一起。
+随后，也是通过一个主`NgModule`来引导启动一个Angular应用，这个模块通常命名为`AppModule`。
 
 ```ts
 import { PlatformRef, NgModuleRef } from '@angular/core';
