@@ -1,5 +1,11 @@
 <sample-current-time></sample-current-time>
-<div sampleAttributeDirective="sampleAttributeDirective input" class="isActive">
-  <!-- <sample-lifecycle-hooks title="Lifecycle Hooks"></sample-lifecycle-hooks> -->
+<!-- <div>
+  <sample-lifecycle-hooks title="Lifecycle Hooks"></sample-lifecycle-hooks>
+</div>
+<div sampleAttributeDirective="sampleAttributeDirective input">
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat maxime quasi officia sint blanditiis impedit repellendus suscipit autem. Recusandae quas nulla tenetur placeat sapiente nihil aspernatur ea id, fugit aperiam.
+</div> -->
+
+<div *sampleStructuralDirective="times; let i = index">
+  {{i}} - Structural directive template content
 </div>
