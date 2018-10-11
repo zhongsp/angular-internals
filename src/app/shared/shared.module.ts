@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CurrentTimeComponent } from './current-time/current-time.component';
 import { AttributeDirectiveDirective } from './attribute-directive.directive';
 import { StructuralDirectiveDirective } from './structural-directive.directive';
+import { ReversePipe } from './reverse.pipe';
 
 @NgModule({
   imports: [
@@ -11,12 +12,14 @@ import { StructuralDirectiveDirective } from './structural-directive.directive';
   declarations: [
     CurrentTimeComponent,
     AttributeDirectiveDirective,
-    StructuralDirectiveDirective
+    StructuralDirectiveDirective,
+    ReversePipe
   ],
   exports: [
     CurrentTimeComponent,
     AttributeDirectiveDirective,
-    StructuralDirectiveDirective
+    StructuralDirectiveDirective,
+    ReversePipe
   ]
 })
 export class SharedModule { }
