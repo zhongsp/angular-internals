@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LifecycleHooksComponent } from './lifecycle-hooks/lifecycle-hooks.component';
@@ -12,7 +13,8 @@ import { SharedModule } from "./shared/shared.module";
   ],
   imports: [
     BrowserModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [

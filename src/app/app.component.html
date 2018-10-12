@@ -1,4 +1,3 @@
-<h3>{{title | reverse:'A':'B'}}</h3>
 <sample-current-time></sample-current-time>
 <!-- <div>
   <sample-lifecycle-hooks title="Lifecycle Hooks"></sample-lifecycle-hooks>
@@ -10,3 +9,7 @@
 <!-- <div *sampleStructuralDirective="times; let i = index">
   {{i}} - Structural directive template content
 </div> -->
+<div>
+  {{todo$ | async | json}}
+</div>
+

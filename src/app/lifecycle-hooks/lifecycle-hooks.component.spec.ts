@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { SharedModule } from "../shared/shared.module";
 import { LifecycleHooksComponent } from './lifecycle-hooks.component';
 
 describe('LifecycleHooksComponent', () => {
@@ -8,6 +8,9 @@ describe('LifecycleHooksComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        SharedModule
+      ],
       declarations: [ LifecycleHooksComponent ]
     })
     .compileComponents();
