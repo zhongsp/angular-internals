@@ -1,9 +1,9 @@
-import { Injectable, Optional } from '@angular/core';
-import { Observable } from "rxjs";
+import { Injectable, Optional, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-import { TodosConfigService } from "./todos-config.service";
-import { Todo } from "./todo";
+import { API_CONFIG, ApiConfig } from './api-config';
+import { Todo } from './todo';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +15,10 @@ export class TodosService {
   private rootEndpoint: string;
 
   constructor(
-    @Optional() config: TodosConfigService,
-    private http: HttpClient
+    private http: HttpClient,
+    @Inject(API_CONFIG) private config: ApiConfig
   ) {
-    this.rootEndpoint = config.rootEndpoint || this.defaultRootEndpoint;
+    this.rootEndpoint = this.config.rootEndpoint || this.defaultRootEndpoint;
   }
 
   getTodo(id: number): Observable<Todo> {

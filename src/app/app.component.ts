@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   times: number = 3;
   todo$: Observable<Todo>;
 
-  constructor(private todoService: TodosService) {}
+  constructor(private todoService: TodosService) { }
 
   ngOnInit(): void {
     this.todo$ = this.todoService.getTodo(1);
