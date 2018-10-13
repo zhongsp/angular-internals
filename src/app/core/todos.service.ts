@@ -1,5 +1,5 @@
 import { Injectable, Optional, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { API_CONFIG, ApiConfig } from './api-config';
@@ -24,4 +24,14 @@ export class TodosService {
   getTodo(id: number): Observable<Todo> {
     return this.http.get<Todo>(`${this.rootEndpoint}/todos/${id}`);
   }
+
+  getTodoWithAuthHeader(id: number): Observable<Todo> {
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer'
+    });
+    return this.http.get<Todo>(
+      `${this.rootEndpoint}/todos/${id}`,
+      { headers }
+    );
+  } 
 }
