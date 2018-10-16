@@ -8,7 +8,7 @@ import { XService } from '../x.service';
   template: `
     <section class="di-parent">
       <em>&lt;di-parent&gt; view</em><br>
-      <section a-dir>
+      <section aDir>
         <di-container>
           <di-child></di-child>
         </di-container>

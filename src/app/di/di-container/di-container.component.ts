@@ -5,13 +5,13 @@ import { ADirDirective } from '../a-dir.directive';
 @Component({
   selector: 'di-container',
   template: `
-    <section class="di-container">
+    <section class="di-container" cDir>
       <em>&lt;di-container&gt; view</em><br>
       <ng-content></ng-content>
     </section>
   `,
   styles: ['.di-container { border: 1px solid red; padding: 8px; }'],
-  // providers: [XService]
+  providers: [XService]
 })
 export class DiContainerComponent implements OnInit {
 
