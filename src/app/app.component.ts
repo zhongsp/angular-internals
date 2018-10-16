@@ -7,7 +7,7 @@ import { Todo } from './core/todo';
 @Component({
   selector: 'sample-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   title: string = 'AppComponent';

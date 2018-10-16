@@ -9,6 +9,8 @@ import { Todo } from './todo';
   providedIn: 'root'
 })
 export class TodosService {
+  name: string = 'TodosService provided in root.';
+
   private readonly defaultRootEndpoint: string =
     'https://jsonplaceholder.typicode.com';
 
@@ -33,5 +35,5 @@ export class TodosService {
       `${this.rootEndpoint}/todos/${id}`,
       { headers }
     );
-  } 
+  }
 }

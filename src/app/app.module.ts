@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LifecycleHooksComponent } from './lifecycle-hooks/lifecycle-hooks.component';
 import { SharedModule } from "./shared/shared.module";
 import { API_CONFIG, ApiConfigValue } from "./core/api-config";
+import { DiModule } from "./di/di.module";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { API_CONFIG, ApiConfigValue } from "./core/api-config";
   imports: [
     BrowserModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    DiModule
   ],
   providers: [
     { provide: API_CONFIG, useValue: ApiConfigValue }
