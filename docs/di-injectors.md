@@ -96,6 +96,55 @@ let DivElementNodeDefinition = {
 
 解析注入时，先从`Element Injector Tree`查找，而后切换到`NgModule Injector Tree`继续查找。
 
+## 解析依赖（Resolve Dependency）
+
+### 在组件里请求依赖
+
+```html
+<body>
+  <di-parent></di-parent>
+</body>
+```
+
+```ts
+@Component({
+  selector: 'di-parent',
+  template: `
+    <section class="di-parent">
+      <h2>DI Parent</h2>
+      <di-child></di-child>
+    </section>
+  `,
+  providers: [XService]
+})
+export class DiParentComponent {
+  constructor() { }
+}
+
+@Component({
+  selector: 'di-child',
+  template: `
+    <section class="di-child">
+      <h2>DI Child</h2>
+    </section>
+  `,
+  providers: [XService]
+})
+export class DiChildComponent {
+  constructor(private xService: XService) { }
+}
+```
+
+现在，我们在`DiChildComponent`里请求`XService`依赖。解析：
+
+- 首先，检查当前组件自己的元素注入器。
+  每个组件都会创建自己独立的注入器（组件本质上也是指令）。
+  这个注入器实际保存在组件的宿主DOM元素上（上面代码中的`<di-child></di-child>`元素）。这个注入器是一个`Element Injector`。
+
+- 若未找到，则继续向上查找所有的视图父元素（`view parent element`）上的元素注入器。
+  - 组件视图父元素为组件的宿主元素（即上面的`<di-child></di-child>`和`<di-parent></di-parent>`）。
+  - 内嵌视图父元素为包含`view container`的元素。
+
 ## References
 
 - [Hierarchical Dependency Injectors](https://angular.io/guide/hierarchical-dependency-injection)
