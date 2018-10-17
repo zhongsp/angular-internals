@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector } from '@angular/core';
+import { Component, OnInit, Injector, Host } from '@angular/core';
 import { BService } from '../b.service';
 import { DService } from '../d.service';
 import { AService } from '../a.service';
@@ -23,7 +23,7 @@ export class DiChildComponent implements OnInit {
 
   constructor(
     // private aService: DiChildComponent,
-    private xService: XService,
+    @Host() private xService: YService,
   ) { }
 
   ngOnInit() {

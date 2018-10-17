@@ -6,7 +6,7 @@ import { XService } from '../x.service';
 @Component({
   selector: 'di-parent',
   template: `
-    <section class="di-parent">
+    <section class="di-parent" yDir>
       <em>&lt;di-parent&gt; view</em><br>
       <section aDir>
         <di-container>
