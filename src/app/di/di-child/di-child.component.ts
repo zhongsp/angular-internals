@@ -23,7 +23,7 @@ export class DiChildComponent implements OnInit {
 
   constructor(
     // private aService: DiChildComponent,
-    @Host() private xService: YService,
+    @Host() private xService: AService,
   ) { }
 
   ngOnInit() {
