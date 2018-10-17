@@ -9,6 +9,6 @@ import { AService } from './a.service';
 })
 export class CDirDirective {
 
-  constructor(private bService: AService) { }
+  constructor() { }
 
 }

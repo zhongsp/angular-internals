@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector, Host } from '@angular/core';
+import { Component, OnInit, Injector, Host, SkipSelf, Self, ElementRef } from '@angular/core';
 import { BService } from '../b.service';
 import { DService } from '../d.service';
 import { AService } from '../a.service';
@@ -17,17 +17,17 @@ import { CService } from '../c.service';
     </section>
   `,
   styles: ['.di-child { border: 1px solid blue; padding: 8px; }'],
-  // providers: [XService]
+  // providers: [AService]
 })
 export class DiChildComponent implements OnInit {
 
   constructor(
-    // private aService: DiChildComponent,
-    @Host() private xService: AService,
+    private ele: ElementRef,
+    private xService: AService,
   ) { }
 
   ngOnInit() {
-    
+    console.log(this.ele);
   }
 
 }
