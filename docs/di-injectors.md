@@ -141,10 +141,15 @@ export class DiChildComponent {
   每个组件都会创建自己独立的注入器（组件本质上也是指令）。
   这个注入器实际保存在组件的宿主DOM元素上（上面代码中的`<di-child></di-child>`元素）。这个注入器是一个`Element Injector`。
   视图内元素注入器收集了所有父元素上的`providers`。
+  元素注入器会收集它所在的视图上所有的父结点的`provides`。
 
 - 若未找到，则继续向上查找所有的视图父元素（`view parent element`）上的元素注入器。
   - 组件视图父元素为组件的宿主元素（即上面的`<di-child></di-child>`和`<di-parent></di-parent>`）。
   - 内嵌视图父元素为包含`view container`的元素。
+
+### 使用了`@Host`装饰器
+
+仅检查当前组件自己的元素注入器，若未找到则报错，并不继续向上查找视图父元素。
 
 ## References
 
