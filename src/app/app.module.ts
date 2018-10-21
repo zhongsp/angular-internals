@@ -7,6 +7,7 @@ import { LifecycleHooksComponent } from './lifecycle-hooks/lifecycle-hooks.compo
 import { SharedModule } from "./shared/shared.module";
 import { API_CONFIG, ApiConfigValue } from "./core/api-config";
 import { DiModule } from "./di/di.module";
+import { ChangeDetectionModule } from "./change-detection/change-detection.module";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DiModule } from "./di/di.module";
     BrowserModule,
     SharedModule,
     HttpClientModule,
-    DiModule
+    DiModule,
+    ChangeDetectionModule
   ],
   providers: [
     { provide: API_CONFIG, useValue: ApiConfigValue }
