@@ -1,7 +1,13 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef
+} from "@angular/core";
 
 @Component({
-  selector: 'sample-todo',
+  selector: "sample-todo",
   template: `
     <h3>ChangeDetectionStrategy.OnPush</h3>
     <section>
@@ -10,16 +16,16 @@ import { Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } 
     <section>{{title}}</section>
     <button (click)="detect()">detectChanges()</button>
     <button (click)="mark()">markForCheck()</button>
+    <button (click)="noop()">noop()</button>
   `,
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoComponent implements OnInit {
-
   @Input() datetime: any;
   @Input() title: string;
 
-  constructor(private cd: ChangeDetectorRef) { }
+  constructor(private cd: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.cd.detach();
@@ -33,4 +39,5 @@ export class TodoComponent implements OnInit {
     this.cd.markForCheck();
   }
 
+  noop() {}
 }

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'sample-todo-list',
+  selector: "sample-todo-list",
   template: `
     <h2>Todo List</h2>
     <sample-todo [datetime]="datetime" [title]="title"></sample-todo>
@@ -14,29 +14,30 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class TodoListComponent implements OnInit {
-
   title: string = "Title";
   datetime: any = {
     timestamp: Date.now()
   };
 
-  todoList: any[] = [{
-    "id": 1,
-    "title": "delectus aut autem",
-  }, {
-    "id": 2,
-    "title": "quis ut nam facilis et officia qui"
-  }];
+  todoList: any[] = [
+    {
+      id: 1,
+      title: "delectus aut autem"
+    },
+    {
+      id: 2,
+      title: "quis ut nam facilis et officia qui"
+    }
+  ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   /**
    * Update under:
    *   ChangeDetectionStrategy.Default
-   * 
+   *
    * Don't update under:
    *   ChangeDetectionStrategy.OnPush
    */
@@ -61,7 +62,6 @@ export class TodoListComponent implements OnInit {
    *   ChangeDetectionStrategy.OnPush
    */
   changeTitle() {
-    this.title = 'Title ' + Math.random();
+    this.title = "Title " + Math.random();
   }
-
 }
