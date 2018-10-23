@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CurrentTimeComponent implements OnInit {
   @Input() timestamp: number;
 
-  public time: string;
+  time: string;
 
   constructor() {
     this.time = '';

@@ -2,3 +2,10 @@
 
 html, body { height: 100%; }
 body { margin: 0; padding: 8px; font-family: 'Roboto', sans-serif; }
+
+// Configuring browser compatibility
+// Autoprefixer
+// https://angular.io/guide/build#configuring-browser-compatibility
+::placeholder {
+  color: gray;
+}
