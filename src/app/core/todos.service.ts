@@ -36,4 +36,9 @@ export class TodosService {
       { headers }
     );
   }
+
+  badRequest() {
+    return this.http.get(`${this.rootEndpoint}/bad-request`);
+  }
+
 }
