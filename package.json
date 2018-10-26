@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-prod": "ng build --prod --aot=true --sourceMap=true --baseHref=/angular-internals/dist/angular-sample/",
+    "inspect-size": "source-map-explorer dist\\angular-sample\\main.5b73e71f2b7bc04f35e3.js"
   },
   "private": true,
   "dependencies": {
