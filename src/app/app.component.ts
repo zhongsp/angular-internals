@@ -13,12 +13,13 @@ export class AppComponent implements OnInit {
   title: string = 'AppComponent';
   times: number = 3;
   todo$: Observable<Todo>;
+  count$: Observable<number>;
 
-  constructor(private todoService: TodosService) { }
+  constructor(
+    private todoService: TodosService
+  ) { }
 
   ngOnInit(): void {
-    
-
     // this.todoService.badRequest().subscribe();
   }
 

@@ -11,11 +11,13 @@
 </div> -->
 <div>
   {{todo$ | async | json}}
+  <br>
+  <button (click)="fetchTodo()">Fetch Todo</button>
 </div>
-<button (click)="fetchTodo()">Fetch Todo</button>
 <!-- <section yDir>
   <di-parent></di-parent>
 </section> -->
 <div>
   <sample-todo-list></sample-todo-list>
 </div>
+<sample-counter></sample-counter>
