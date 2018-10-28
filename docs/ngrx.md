@@ -21,3 +21,31 @@ imports: [
     : [],
 ],
 ```
+
+## Action
+
+```ts
+// All actions
+// Use a namespace like '[Counter]' for better debugging
+export enum CounterAction {
+  IncreaseCount = '[Counter] Increase Count',
+  DecreaseCount = '[Counter] Decrease Count'
+}
+
+// Action creator
+export class IncreaseCount implements Action {
+  readonly type = CounterAction.IncreaseCount;
+
+  constructor(readonly payload: { amount: number }) { }
+}
+
+// Action creator
+export class DecreaseCount implements Action {
+  readonly type = CounterAction.DecreaseCount;
+
+  constructor(readonly payload: { amount: number }) { }
+}
+
+// Provide union action creators
+export type CounterActions = IncreaseCount | DecreaseCount;
+```

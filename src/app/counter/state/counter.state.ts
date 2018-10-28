@@ -8,6 +8,7 @@ export interface State extends fromRoot.State {
 
 export interface CounterState {
   count: number;
+  max: number;
 }
 
 // selector

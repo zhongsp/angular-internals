@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 
 import * as fromCounter from '../state/counter.state';
-import { Increment, Decrement } from '../state/counter.action';
+import { IncreaseCount, DecreaseCount } from '../state/counter.actions';
 
 @Component({
   selector: 'sample-counter',
@@ -28,12 +28,14 @@ export class CounterComponent implements OnInit {
   }
 
   addCount() {
-    this.store.dispatch(new Increment({
+    this.store.dispatch(new IncreaseCount({
       amount: 2
     }));
   }
 
   reduceCount() {
-    this.store.dispatch(new Decrement());
+    this.store.dispatch(new DecreaseCount({
+      amount: 1
+    }));
   }
 }

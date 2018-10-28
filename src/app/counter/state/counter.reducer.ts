@@ -1,8 +1,9 @@
 import { CounterState } from './counter.state';
-import { CounterActions, INCREMENT, DECREMENT } from './counter.action';
+import { CounterActions, CounterAction } from './counter.actions';
 
 const initialState: CounterState = {
-  count: 0
+  count: 0,
+  max: 10
 };
 
 export function reducer(
@@ -10,12 +11,12 @@ export function reducer(
   action: CounterActions
 ) {
   switch (action.type) {
-    case INCREMENT:
+    case CounterAction.IncreaseCount:
       return {
         count: state.count + action.payload.amount
       };
 
-    case DECREMENT:
+    case CounterAction.DecreaseCount:
       return {
         count: state.count - 1
       };
