@@ -1,17 +1,24 @@
-import { Action } from "@ngrx/store";
+import { CounterState } from './counter.state';
+import { CounterActions, INCREMENT, DECREMENT } from './counter.action';
 
-export const INCREMENT = "INCREMENT";
-export const DECREMENT = "DECREMENT";
+const initialState: CounterState = {
+  count: 0
+};
 
-const initialState = 0;
-
-export function reducer(state: number = initialState, action: Action) {
+export function reducer(
+  state: CounterState = initialState,
+  action: CounterActions
+) {
   switch (action.type) {
     case INCREMENT:
-      return state + 1;
-  
+      return {
+        count: state.count + action.payload.amount
+      };
+
     case DECREMENT:
-      return state - 1;
+      return {
+        count: state.count - 1
+      };
 
     default:
       return state;
