@@ -4,6 +4,7 @@ import { CurrentTimeComponent } from './current-time/current-time.component';
 import { AttributeDirectiveDirective } from './attribute-directive.directive';
 import { StructuralDirectiveDirective } from './structural-directive.directive';
 import { ReversePipe } from './reverse.pipe';
+import { DirExportAsDirective } from './dir-export-as.directive';
 
 @NgModule({
   imports: [
@@ -13,13 +14,15 @@ import { ReversePipe } from './reverse.pipe';
     CurrentTimeComponent,
     AttributeDirectiveDirective,
     StructuralDirectiveDirective,
-    ReversePipe
+    ReversePipe,
+    DirExportAsDirective
   ],
   exports: [
     CurrentTimeComponent,
     AttributeDirectiveDirective,
     StructuralDirectiveDirective,
-    ReversePipe
+    ReversePipe,
+    DirExportAsDirective
   ]
 })
 export class SharedModule { }
