@@ -3,7 +3,7 @@
 指令的`exportAs`元信息用于将此指令的实例暴露给模版引用变量。
 
 ```html
-<div pzExportAs [attr.role]="tplVar.title" #tplVar="pzExportAs">
+<div pzExportAs [attr.role]="tplVar.title" #tplVar="pzExportAsInstance">
   {{tplVar.title}}
 </div>
 ```
@@ -11,7 +11,7 @@
 ```ts
 @Directive({
   selector: '[pzExportAs]',
-  exportAs: 'pzExportAs'
+  exportAs: 'pzExportAsInstance'
 })
 export class DirExportAsDirective { }
 ```
