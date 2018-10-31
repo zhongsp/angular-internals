@@ -8,7 +8,7 @@ import { IncreaseCount, DecreaseCount } from '../state/counter.actions';
   selector: 'sample-counter',
   template: `
   <div>
-    Count: {{count}}
+    Count: {{count}}.
     <br>
     <button (click)="addCount()"> +2 </button>
     <button (click)="reduceCount()"> -1 </button>

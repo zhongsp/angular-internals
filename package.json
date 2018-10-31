@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-prod": "ng build --prod --aot=true --sourceMap=true --baseHref=/angular-internals/dist/angular-sample/",
-    "inspect-size": "source-map-explorer dist\\angular-sample\\main.5b73e71f2b7bc04f35e3.js"
+    "inspect-size": "source-map-explorer dist\\angular-sample\\main.5b73e71f2b7bc04f35e3.js",
+    "ngc": "npx ngc -p src/tsconfig.app.json"
   },
   "private": true,
   "dependencies": {
