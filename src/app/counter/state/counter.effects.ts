@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { TodosService } from 'src/app/core/todos.service';
-import { CounterAction, LoadCountSuccess } from './counter.actions';
-import { mergeMap, map } from 'rxjs/operators';
+import { CounterAction, LoadCountSuccess, LoadCountFail } from './counter.actions';
+import { mergeMap, map, catchError } from 'rxjs/operators';
 import { Todo } from 'src/app/core/todo';
+import { of } from 'rxjs';
 
 @Injectable()
 export class CounterEffects {
@@ -16,7 +17,8 @@ export class CounterEffects {
       this.todoService
         .listTodos()
         .pipe(
-          map((todos: Todo[]) => new LoadCountSuccess({ count: todos.length }))
+          map((todos: Todo[]) => new LoadCountSuccess({ count: todos.length })),
+          catchError(err => of(new LoadCountFail({ reason: 'Error occurred.' })))
         )
     )
   );

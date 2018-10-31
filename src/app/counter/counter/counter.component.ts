@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 
 import * as fromCounter from '../state/counter.state';
 import { IncreaseCount, DecreaseCount, LoadCount } from '../state/counter.actions';
+import { takeWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'sample-counter',
@@ -17,14 +18,19 @@ import { IncreaseCount, DecreaseCount, LoadCount } from '../state/counter.action
   `,
   styles: []
 })
-export class CounterComponent implements OnInit {
+export class CounterComponent implements OnInit, OnDestroy {
   count: number;
+
+  private isComponentActive = true;
 
   constructor(private store: Store<fromCounter.State>) {}
 
   ngOnInit() {
     this.store
-      .pipe(select(fromCounter.getCount))
+      .pipe(
+        takeWhile(() => this.isComponentActive),
+        select(fromCounter.getCount)
+      )
       .subscribe(count => (this.count = count));
   }
 
@@ -42,5 +48,9 @@ export class CounterComponent implements OnInit {
 
   getTotal() {
     this.store.dispatch(new LoadCount());
+  }
+
+  ngOnDestroy() {
+    this.isComponentActive = false;
   }
 }

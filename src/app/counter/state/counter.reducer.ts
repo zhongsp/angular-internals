@@ -27,6 +27,12 @@ export function reducer(
         count: action.payload.count
       };
 
+    case CounterAction.LoadCountFail:
+      return {
+        ...state,
+        error: action.payload.reason
+      };
+
     default:
       return state;
   }
