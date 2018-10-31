@@ -21,6 +21,12 @@ export function reducer(
         count: state.count - 1
       };
 
+    case CounterAction.LoadCountSuccess:
+      return {
+        ...state,
+        count: action.payload.count
+      };
+
     default:
       return state;
   }

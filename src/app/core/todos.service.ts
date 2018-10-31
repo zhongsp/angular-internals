@@ -23,6 +23,10 @@ export class TodosService {
     this.rootEndpoint = this.config.rootEndpoint || this.defaultRootEndpoint;
   }
 
+  listTodos(): Observable<Todo[]> {
+    return this.http.get<Todo[]>(`${this.rootEndpoint}/todos`);
+  }
+
   getTodo(id: number): Observable<Todo> {
     return this.http.get<Todo>(`${this.rootEndpoint}/todos/${id}`);
   }

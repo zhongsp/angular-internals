@@ -13,6 +13,7 @@ import { ChangeDetectionModule } from "./change-detection/change-detection.modul
 import { CustomHttpInterceptor } from "./core/http-interceptor";
 import { CounterModule } from "./counter/counter.module";
 import { environment } from "src/environments/environment";
+import { EffectsModule } from "@ngrx/effects";
 
 @NgModule({
   declarations: [AppComponent, LifecycleHooksComponent],
@@ -24,6 +25,7 @@ import { environment } from "src/environments/environment";
     ChangeDetectionModule,
     CounterModule,
     StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     // StoreDevtoolsModule.instrument({
     //   name: 'Angular Sample App',
     //   maxAge: 20,
