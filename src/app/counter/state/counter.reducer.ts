@@ -1,4 +1,4 @@
-import { CounterState } from './counter.state';
+import { CounterState } from '.';
 import { CounterActions, CounterAction } from './counter.actions';
 
 const initialState: CounterState = {

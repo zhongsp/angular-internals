@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 
-import * as fromCounter from '../state/counter.state';
+import * as fromCounter from '../state';
 import { IncreaseCount, DecreaseCount, LoadCount } from '../state/counter.actions';
 import { takeWhile } from 'rxjs/operators';
 

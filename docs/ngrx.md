@@ -22,6 +22,20 @@ imports: [
 ],
 ```
 
+## Typical structure
+
+```txt
+(feature name)
+|-- (sub-feature)
+|-- state
+    |-- feature.actions.ts
+    |-- feature.effects.ts
+    |-- feature.reducer.ts
+    |-- feature.actions.ts
+    |-- index.ts
+
+```
+
 ## Action
 
 ```ts

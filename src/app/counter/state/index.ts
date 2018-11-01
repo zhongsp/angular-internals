@@ -6,6 +6,7 @@ export interface State extends fromRoot.State {
   counter: CounterState;
 }
 
+// Store state
 export interface CounterState {
   count: number;
   max: number;
