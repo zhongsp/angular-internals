@@ -14,9 +14,13 @@ import { CustomHttpInterceptor } from "./core/http-interceptor";
 import { CounterModule } from "./counter/counter.module";
 import { environment } from "src/environments/environment";
 import { EffectsModule } from "@ngrx/effects";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SampleNavComponent } from './sample-nav/sample-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
 @NgModule({
-  declarations: [AppComponent, LifecycleHooksComponent],
+  declarations: [AppComponent, LifecycleHooksComponent, SampleNavComponent],
   imports: [
     BrowserModule,
     SharedModule,
@@ -36,6 +40,13 @@ import { EffectsModule } from "@ngrx/effects";
       maxAge: 2,
       logOnly: environment.production
     }) : [],
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
   ],
   providers: [
     { provide: API_CONFIG, useValue: ApiConfigValue },
