@@ -1,5 +1,7 @@
 # Angular Material
 
+Angular Material是由Angular团队打造，使用Angular编写，并提供了一套遵循`Material Design`的组件。
+
 # Setup commands
 
 ```sh
