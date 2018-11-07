@@ -31,7 +31,6 @@ imports: [
     |-- feature.actions.ts
     |-- feature.effects.ts
     |-- feature.reducer.ts
-    |-- feature.actions.ts
     |-- index.ts
 
 ```
