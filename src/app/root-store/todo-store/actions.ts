@@ -1,11 +1,11 @@
-import { Action } from "@ngrx/store";
+import { Action } from '@ngrx/store';
 
-import { Todo } from "../../models";
+import { Todo } from '../../models';
 
 export enum ActionType {
-  LoadItems = "[Todo] LoadItems",
-  LoadItemsSuccess = "[Todo] LoadItemsSuccess",
-  LoadItemsFailure = "[Todo] LoadItemsFailure"
+  LoadItems = '[Todo] LoadItems',
+  LoadItemsSuccess = '[Todo] LoadItemsSuccess',
+  LoadItemsFailure = '[Todo] LoadItemsFailure'
 }
 
 export class LoadItemsAction implements Action {

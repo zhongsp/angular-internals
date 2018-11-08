@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SampleNavComponent } from './sample-nav/sample-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { RootStoreModule } from './root-store';
+import { TodoModule } from './todo/todo.module';
 
 @NgModule({
   declarations: [AppComponent, LifecycleHooksComponent, SampleNavComponent],
@@ -27,9 +29,9 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     HttpClientModule,
     DiModule,
     ChangeDetectionModule,
-    CounterModule,
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
+    TodoModule,
+    // CounterModule,
+    RootStoreModule,
     // StoreDevtoolsModule.instrument({
     //   name: 'Angular Sample App',
     //   maxAge: 20,

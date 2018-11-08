@@ -1,4 +1,4 @@
-<sample-sample-nav></sample-sample-nav>
+<!-- <sample-sample-nav></sample-sample-nav> -->
 <!-- <sample-current-time></sample-current-time> -->
 <!-- <div>
   <sample-lifecycle-hooks title="Lifecycle Hooks"></sample-lifecycle-hooks>
@@ -18,7 +18,6 @@
 <div>
   <sample-todo-list></sample-todo-list>
 </div>
-<sample-counter></sample-counter>
 
 <div pzExportAs [attr.role]="tplvar.title" #tplvar="pzExportAs">
   {{tplvar.title}}
@@ -36,3 +35,5 @@
   </p>
   <button (click)="print()">Print Point</button>
 </ng-template>
+
+<sample-todo-list-container></sample-todo-list-container>

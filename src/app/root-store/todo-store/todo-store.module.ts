@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
+import { reducer } from './reducer';
+import { TodoEffects } from './effects';
 
 @NgModule({
-  declarations: [],
   imports: [
-    CommonModule
+    StoreModule.forFeature('todo', reducer),
+    EffectsModule.forFeature([TodoEffects])
   ]
 })
-export class TodoStoreModule { }
+export class TodoStoreModule {}
