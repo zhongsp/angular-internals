@@ -1,5 +1,9 @@
 # NgRx
 
+## Overview
+
+![Overview](./img/ngrx.png)
+
 下面，我们要实现一个叫`Todo`的新特性。
 
 ## 安装 NgRx Devtools
