@@ -1,20 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { Observable, of, from } from 'rxjs';
-
-import { Todo } from '../../models';
-
+import { Observable, of } from 'rxjs';
 import {
   RootStoreState,
   TodoStoreSelectors,
-  TodoStoreActions
+  TodoStoreActions,
 } from '../../root-store';
-import { switchMap, first } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
+
+import { Todo } from '../../models';
 
 @Component({
   selector: 'sample-todo-list-container',
-  templateUrl: './todo-list.container.component.html',
-  styleUrls: ['./todo-list.container.component.scss']
+  templateUrl: './todo-list.container.html',
 })
 export class TodoListContainerComponent implements OnInit {
   todoItems$: Observable<Todo[]> | null;

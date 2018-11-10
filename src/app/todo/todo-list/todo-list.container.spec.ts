@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoListContainerComponent } from './todo-list.container.component';
+import { TodoListContainerComponent } from './todo-list.container';
 
 describe('TodoListContainerComponent', () => {
   let component: TodoListContainerComponent;
