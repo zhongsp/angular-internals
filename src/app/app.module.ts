@@ -1,7 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
 import { AppComponent } from "./app.component";
@@ -11,9 +10,7 @@ import { API_CONFIG, ApiConfigValue } from "./core/api-config";
 import { DiModule } from "./di/di.module";
 import { ChangeDetectionModule } from "./change-detection/change-detection.module";
 import { CustomHttpInterceptor } from "./core/http-interceptor";
-import { CounterModule } from "./counter/counter.module";
 import { environment } from "src/environments/environment";
-import { EffectsModule } from "@ngrx/effects";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SampleNavComponent } from './sample-nav/sample-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';

@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { TodoStoreModule } from './todo-store/todo-store.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -7,8 +6,9 @@ import { EffectsModule } from '@ngrx/effects';
 @NgModule({
   declarations: [],
   imports: [
-    TodoStoreModule, StoreModule.forRoot({}),
-    EffectsModule.forRoot([])
-  ]
+    TodoStoreModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+  ],
 })
 export class RootStoreModule {}
