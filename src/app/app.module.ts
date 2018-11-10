@@ -17,6 +17,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { RootStoreModule } from './root-store';
 import { TodoModule } from './todo/todo.module';
+import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
   declarations: [AppComponent, LifecycleHooksComponent, SampleNavComponent],
@@ -46,6 +47,7 @@ import { TodoModule } from './todo/todo.module';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    AppRoutingModule,
   ],
   providers: [
     { provide: API_CONFIG, useValue: ApiConfigValue },
