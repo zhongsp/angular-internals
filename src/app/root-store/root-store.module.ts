@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
-import { TodoStoreModule } from './todo-store/todo-store.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+
+import { TodoStoreModule } from './todo-store/todo-store.module';
 
 @NgModule({
   declarations: [],
