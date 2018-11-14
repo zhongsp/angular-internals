@@ -28,11 +28,11 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     // this.todoService.badRequest().subscribe();
 
-    this.theContainer.createEmbeddedView(this.theTemplate, {
-      x: this.x,
-      y: this.y,
-      print: this.print
-    })
+    // this.theContainer.createEmbeddedView(this.theTemplate, {
+    //   x: this.x,
+    //   y: this.y,
+    //   print: this.print
+    // })
   }
 
   ngAfterViewInit(): void {
