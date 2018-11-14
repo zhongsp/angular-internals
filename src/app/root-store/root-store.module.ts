@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-
-import { TodoStoreModule } from './todo-store/todo-store.module';
-import { environment } from '../../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
+
+import { environment } from '../../environments/environment';
+import { TodoStoreModule } from './todo-store/todo-store.module';
 
 @NgModule({
   declarations: [],
