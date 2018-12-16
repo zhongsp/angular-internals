@@ -1,4 +1,4 @@
-import { Route, RouterModule, RouterLink } from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { ApplicationListComponent } from './application/application-list/application-list.component';
 import { ApplicationDetailComponent } from './application/application-detail/application-detail.component';
@@ -26,9 +26,7 @@ const routes: Route[] = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
