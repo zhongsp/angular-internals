@@ -22,6 +22,7 @@ import {
 import { RootStoreModule } from './root-store';
 import { TodoModule } from './todo/todo.module';
 import { AppRoutingModule } from './app-routing.module';
+import { ApplicationModule } from "./application/application.module";
 
 @NgModule({
   declarations: [AppComponent, LifecycleHooksComponent, SampleNavComponent],
@@ -40,6 +41,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    ApplicationModule,
     AppRoutingModule,
   ],
   providers: [
