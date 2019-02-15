@@ -49,6 +49,9 @@ For example:
   float: right;
   width: 100px;
   height: 100px;
+  padding: 10px;
+  margin: 10px;
+  overflow: auto;
 
   /* Typography */
   font: normal 13px "Helvetica Neue", sans-serif;
