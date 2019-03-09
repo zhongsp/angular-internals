@@ -1,0 +1,8 @@
+{
+  "port": 3000,
+  "watch": true,
+  "middlewares": [
+    "fake-server/middlewares/id-token.js",
+    "fake-server/middlewares/tenant-id.js"
+  ]
+}
