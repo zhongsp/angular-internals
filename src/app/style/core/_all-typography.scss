@@ -1,0 +1,5 @@
+@import '../../shared/footer/footer.component.theme';
+
+@mixin vis-customer-portal-typography($typography) {
+  @include vis-footer-typography($typography);
+}

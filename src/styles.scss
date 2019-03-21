@@ -1,17 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; padding: 0; font-family: 'Roboto', sans-serif; }
-
-// Configuring browser compatibility
-// Autoprefixer
-// https://angular.io/guide/build#configuring-browser-compatibility
-::placeholder {
-  color: gray;
-}
-
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '~vision-theme/theme';
+@import 'app/style/core/all-theme';
+@import 'app/style/core/all-typography';
+// $vision-theme comes from vision theme
+@include vis-customer-portal-theme($vision-theme);
+// $vision-type comes from vision theme
+@include vis-customer-portal-typography($vision-type);

@@ -1,0 +1,18 @@
+@import '~@angular/material/theming';
+
+@mixin vis-footer-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  
+  color: mat-color($primary);
+
+}
+
+@mixin vis-footer-typography($typography) {
+  font: {
+    family: mat-font-family($typography);
+    // size: mat-font-size($typography, body-1);
+    size: 14px;
+    weight: mat-font-weight($typography, body-1);
+  }
+}

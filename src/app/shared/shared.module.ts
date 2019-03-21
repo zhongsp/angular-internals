@@ -5,6 +5,7 @@ import { AttributeDirectiveDirective } from './attribute-directive.directive';
 import { StructuralDirectiveDirective } from './structural-directive.directive';
 import { ReversePipe } from './reverse.pipe';
 import { DirExportAsDirective } from './dir-export-as.directive';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { DirExportAsDirective } from './dir-export-as.directive';
     AttributeDirectiveDirective,
     StructuralDirectiveDirective,
     ReversePipe,
-    DirExportAsDirective
+    DirExportAsDirective,
+    FooterComponent
   ],
   exports: [
     CurrentTimeComponent,
