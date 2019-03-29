@@ -1,7 +1,0 @@
-@import '~vision-theme/theme';
-@import 'app/style/core/all-theme';
-@import 'app/style/core/all-typography';
-// $vision-theme comes from vision theme
-@include vis-customer-portal-theme($vision-theme);
-// $vision-type comes from vision theme
-@include vis-customer-portal-typography($vision-type);

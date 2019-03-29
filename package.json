@@ -1,60 +1,26 @@
 {
-  "name": "angular-sample",
-  "version": "0.0.0",
+  "name": "angular-internals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "build-prod": "ng build --prod --aot=true --sourceMap=true --baseHref=/angular-internals/dist/angular-sample/",
-    "inspect-size": "source-map-explorer dist\\angular-sample\\main.5b73e71f2b7bc04f35e3.js",
-    "ngc": "npx ngc -p src/tsconfig.app.json",
-    "fake-server": "json-server fake-server/db.json --config fake-server/json-server.json"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "^7.0.2",
-    "@angular/cdk": "^7.0.2",
-    "@angular/common": "^7.0.2",
-    "@angular/compiler": "^7.0.2",
-    "@angular/core": "^7.0.2",
-    "@angular/forms": "^7.0.2",
-    "@angular/http": "^7.0.2",
-    "@angular/material": "^7.0.2",
-    "@angular/platform-browser": "^7.0.2",
-    "@angular/platform-browser-dynamic": "^7.0.2",
-    "@angular/router": "^7.0.2",
-    "@ngrx/effects": "^6.1.1",
-    "@ngrx/store": "^6.1.0",
-    "@ngrx/store-devtools": "^6.1.0",
-    "core-js": "^2.5.4",
-    "hammerjs": "^2.0.8",
-    "rxjs": "^6.3.3",
-    "zone.js": "~0.8.26"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhongsp/angular-sample.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhongsp/angular-sample/issues"
+  },
+  "homepage": "https://github.com/zhongsp/angular-sample#readme",
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.10.0",
-    "@angular/cli": "^7.0.7",
-    "@angular/compiler-cli": "^7.0.2",
-    "@angular/language-service": "^7.0.2",
-    "@ngrx/schematics": "^6.1.2",
-    "@types/jasmine": "~2.8.6",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~8.9.4",
-    "codelyzer": "~4.2.1",
-    "jasmine-core": "~2.99.1",
-    "jasmine-spec-reporter": "~4.2.1",
-    "json-server": "^0.14.2",
-    "karma": "~1.7.1",
-    "karma-chrome-launcher": "~2.2.0",
-    "karma-coverage-istanbul-reporter": "~2.0.0",
-    "karma-jasmine": "~1.1.1",
-    "karma-jasmine-html-reporter": "^0.2.2",
-    "protractor": "~5.4.0",
-    "ts-node": "~5.0.1",
-    "tslint": "~5.9.1",
-    "typescript": "~3.1.6"
+    "@angular/cli": "^7.3.7"
   }
 }
